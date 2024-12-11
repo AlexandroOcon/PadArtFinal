@@ -1,7 +1,7 @@
 export const sortMenu = [
     {
         id: 1,
-        title: "Latest",
+        title: "Recientes",
     },
     {
         id: 2,
@@ -9,15 +9,15 @@ export const sortMenu = [
     },
     {
         id: 3,
-        title: "Top Rated",
+        title: "Mejor valorado",
     },
     {
         id: 4,
-        title: "Price(Lowest First)",
+        title: "Precio bajo",
     },
     {
         id: 5,
-        title: "Price(Highest First)"
+        title: "Precio alto"
     },
 ];
 

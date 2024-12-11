@@ -10,7 +10,7 @@ import EmptyView from '../components/common/EmptyView';
 
 const AllProducts = () => {
 
-    useDocTitle('All Products');
+    useDocTitle('Todos los productos');
 
     const { allProducts } = useContext(filtersContext);
 

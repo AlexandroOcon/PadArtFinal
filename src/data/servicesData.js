@@ -10,7 +10,7 @@ const servicesData = [
     {
         id: 2,
         icon: <FaShieldAlt />,
-        title: "Brand Warranty",
+        title: "Garantia",
         info: "Productos 100% Originales",
     },
     {

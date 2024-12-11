@@ -10,7 +10,7 @@ const Footer = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubValue('');
-        alert('Thankyou, you are subscribed to receive our daily newsletter');
+        alert('Gracias por Suscribirte');
     };
 
     const currYear = new Date().getFullYear();
@@ -22,10 +22,10 @@ const Footer = () => {
                 <div className="wrapper footer_wrapper">
                     <div className="foot_about">
                         <h2>
-                            <Link to="/">X-Beat</Link>
+                            <Link to="/">PadArt</Link>
                         </h2>
                         <div className="foot_subs">
-                            <p>Subscribe to our Email alerts to receive early discount offers, and new products info.</p>
+                            <p>Suscribete para obtener las actualizaciones de los productos y promociones.</p>
                             <form onSubmit={handleSubmit}>
                                 <input
                                     type="email"
@@ -35,7 +35,7 @@ const Footer = () => {
                                     value={subValue}
                                     onChange={(e) => setSubValue(e.target.value)}
                                 />
-                                <button type="submit" className="btn">Subscribe</button>
+                                <button type="submit" className="btn">Subscribete</button>
                             </form>
                         </div>
                     </div>
@@ -72,8 +72,8 @@ const Footer = () => {
                     <div className="sub_footer_wrapper">
                         <div className="foot_copyright">
                             <p>
-                                {currYear} | XBeat. All Rights Reserved.
-                                Built by | <a href="https://gulshansongara.netlify.app/">Gulshan Songara</a>
+                                {currYear} | PadArt Derechos reservados.
+                                Creado por | <a href="https://github.com/AlexandroOcon">Alexandro Ocon</a>
                             </p>
                         </div>
                         <div className="foot_social">

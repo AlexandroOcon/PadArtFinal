@@ -100,7 +100,7 @@ const ProductDetails = () => {
                                     }
                                 </span>
                                 <span>|</span>
-                                <Link to="*">{ratings} Ratings</Link>
+                                <Link to="*">{ratings} Calificaciones</Link>
                             </div>
 
                             <div className="separator"></div>
@@ -111,22 +111,22 @@ const ProductDetails = () => {
                                         {newPrice} &nbsp;
                                         <small className="del_price"><del>{oldPrice}</del></small>
                                     </h2>
-                                    <p className="saved_price">You save: {savedPrice} ({savedDiscount}%)</p>
-                                    <span className="tax_txt">(Inclusive of all taxes)</span>
+                                    <p className="saved_price">Ahorras: {savedPrice} ({savedDiscount}%)</p>
+                                    <span className="tax_txt">(Incluye taxes)</span>
                                 </div>
 
                                 <div className="badge">
-                                    <span><IoMdCheckmark /> In Stock</span>
+                                    <span><IoMdCheckmark /> En Stock</span>
                                 </div>
                             </div>
 
                             <div className="separator"></div>
 
                             <div className="prod_details_offers">
-                                <h4>Offers and Discounts</h4>
+                                <h4>Ofertas y Descuentos</h4>
                                 <ul>
-                                    <li>No Cost EMI on Credit Card</li>
-                                    <li>Pay Later & Avail Cashback</li>
+                                    <li>MSI con Tarjeta de Credito</li>
+                                    <li>Paga antes y recibe Cashback</li>
                                 </ul>
                             </div>
 
@@ -138,7 +138,7 @@ const ProductDetails = () => {
                                     className="btn"
                                     onClick={handleAddItem}
                                 >
-                                    Add to cart
+                                    Agregar al carrito
                                 </button>
                             </div>
 

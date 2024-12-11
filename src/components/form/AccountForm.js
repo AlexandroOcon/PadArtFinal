@@ -39,10 +39,10 @@ const AccountForm = () => {
                                 <div className="form_head">
                                     <h2>{isSignupVisible ? 'Signup' : 'Login'}</h2>
                                     <p>
-                                        {isSignupVisible ? 'Already have an account ?' : 'New to X-Beat ?'}
+                                        {isSignupVisible ? 'Ya cuentas con una cuenta ?' : 'Nuevo en PadArt ?'}
                                         &nbsp;&nbsp;
                                         <button type="button" onClick={handleIsSignupVisible}>
-                                            {isSignupVisible ? 'Login' : 'Create an account'}
+                                            {isSignupVisible ? 'Login' : 'Crea una cuenta'}
                                         </button>
                                     </p>
                                 </div>
@@ -116,7 +116,7 @@ const AccountForm = () => {
 
                                 {/*===== Form-Footer =====*/}
                                 <div className="form_foot">
-                                    <p>or login with</p>
+                                    <p>o logeate con</p>
                                     <div className="login_options">
                                         <Link to="/">Facebook</Link>
                                         <Link to="/">Google</Link>

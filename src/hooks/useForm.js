@@ -25,7 +25,7 @@ const useForm = () => {
         setInputValues({});
         setFormUserInfo(loggedUserInfo);
         toggleForm(false);
-        alert(`Hello ${loggedUserInfo}, you're successfully logged-in.`);
+        alert(`Hola ${loggedUserInfo}, iniciaste sesion correctamente.`);
     };
 
     return { inputValues, handleInputValues, handleFormSubmit };

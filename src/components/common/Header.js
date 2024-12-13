@@ -7,28 +7,26 @@ import cartContext from '../../contexts/cart/cartContext';
 import AccountForm from '../form/AccountForm';
 import SearchBar from './SearchBar';
 
-
 const Header = () => {
-
-    const { formUserInfo, toggleForm, toggleSearch } = useContext(commonContext);
+    const { loggedInUser, setLoggedInUser, toggleForm, toggleSearch } = useContext(commonContext); // Obtener toggleSearch y toggleForm
     const { cartItems } = useContext(cartContext);
     const [isSticky, setIsSticky] = useState(false);
 
-
-    // handle the sticky-header
     useEffect(() => {
         const handleIsSticky = () => window.scrollY >= 50 ? setIsSticky(true) : setIsSticky(false);
-
         window.addEventListener('scroll', handleIsSticky);
-
         return () => {
             window.removeEventListener('scroll', handleIsSticky);
         };
     }, [isSticky]);
 
-
     const cartQuantity = cartItems.length;
 
+    // Función para cerrar sesión
+    const handleLogout = () => {
+        localStorage.removeItem('loggedInUser');
+        setLoggedInUser(null); // Actualiza el estado del usuario logueado
+    };
 
     return (
         <>
@@ -49,11 +47,9 @@ const Header = () => {
                             <div className="cart_action">
                                 <Link to="/cart">
                                     <AiOutlineShoppingCart />
-                                    {
-                                        cartQuantity > 0 && (
-                                            <span className="badge">{cartQuantity}</span>
-                                        )
-                                    }
+                                    {cartQuantity > 0 && (
+                                        <span className="badge">{cartQuantity}</span>
+                                    )}
                                 </Link>
                                 <div className="tooltip">Cart</div>
                             </div>
@@ -63,30 +59,28 @@ const Header = () => {
                                     <AiOutlineUser />
                                 </span>
                                 <div className="dropdown_menu">
-                                    <h4>Hello! {formUserInfo && <Link to="*">&nbsp;{formUserInfo}</Link>}</h4>
-                                    <p>Access account and manage orders</p>
-                                    {
-                                        !formUserInfo && (
-                                            <button
-                                                type="button"
-                                                onClick={() => toggleForm(true)}
-                                            >
-                                                Login / Signup
-                                            </button>
-                                        )
-                                    }
+                                    <h4>Hola {loggedInUser ? <Link to="*">&nbsp;{loggedInUser}</Link> : 'Usuario'}</h4>
+                                    <p>Inicia Sesion y empieza a ordenar</p>
+                                    {!loggedInUser && (
+                                        <button type="button" onClick={() => toggleForm(true)}>
+                                            Login / Signup
+                                        </button>
+                                    )}
+                                    {loggedInUser && (
+                                        <button type="button" onClick={handleLogout}>
+                                            Logout
+                                        </button>
+                                    )}
                                     <div className="separator"></div>
                                     <ul>
-                                        {
-                                            dropdownMenu.map(item => {
-                                                const { id, link, path } = item;
-                                                return (
-                                                    <li key={id}>
-                                                        <Link to={path}>{link}</Link>
-                                                    </li>
-                                                );
-                                            })
-                                        }
+                                        {dropdownMenu.map((item) => {
+                                            const { id, link, path } = item;
+                                            return (
+                                                <li key={id}>
+                                                    <Link to={path}>{link}</Link>
+                                                </li>
+                                            );
+                                        })}
                                     </ul>
                                 </div>
                             </div>

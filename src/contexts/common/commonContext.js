@@ -9,7 +9,8 @@ const initialState = {
     isFormOpen: false,
     formUserInfo: '',
     isSearchOpen: false,
-    searchResults: []
+    searchResults: [],
+    loggedInUser: null,  // Estado para el usuario logueado
 };
 
 // Common-Provider Component
@@ -47,13 +48,22 @@ const CommonProvider = ({ children }) => {
         });
     };
 
+    // Acción para actualizar el usuario logueado
+    const setLoggedInUser = (user) => {
+        return dispatch({
+            type: 'SET_LOGGED_IN_USER',
+            payload: { user }
+        });
+    };
+
     // Context values
     const values = {
         ...state,
         toggleForm,
         setFormUserInfo,
         toggleSearch,
-        setSearchResults
+        setSearchResults,
+        setLoggedInUser, // Proporcionamos la función en el contexto
     };
 
     return (

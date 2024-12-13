@@ -28,7 +28,13 @@ const RegistroProducto = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Here you would save the product data to a database or local storage
+        
+        // Add a new product to the localStorage
+        const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+        const newProductWithId = { ...newProduct, id: Date.now() }; // Assign a unique ID
+        storedProducts.push(newProductWithId);
+        localStorage.setItem("products", JSON.stringify(storedProducts));
+        
         setAlert("¡Producto registrado con éxito!");
         setTimeout(() => setAlert(""), 3000);
         setNewProduct({

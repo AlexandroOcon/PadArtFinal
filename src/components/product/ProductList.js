@@ -1,53 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import productsData from "../../data/productsData";
 
 const ListaProductos = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true); // Agregar estado de carga
-
-    useEffect(() => {
-        // Verificar si estamos en el navegador antes de acceder a localStorage
-        if (typeof window !== "undefined") {
-            const storedProducts = localStorage.getItem("products");
-            if (storedProducts) {
-                setProducts(JSON.parse(storedProducts));
-            } else {
-                // Establecer productos predeterminados si no hay datos en localStorage
-                setProducts([
-                    {
-                        id: 1,
-                        title: "Producto de Ejemplo 1",
-                        brand: "Marca Ejemplo",
-                        finalPrice: 100,
-                        quantity: 10,
-                        images: ["https://via.placeholder.com/150"]
-                    },
-                    {
-                        id: 2,
-                        title: "Producto de Ejemplo 2",
-                        brand: "Marca Ejemplo",
-                        finalPrice: 150,
-                        quantity: 5,
-                        images: ["https://via.placeholder.com/150"]
-                    }
-                ]);
-            }
-            setLoading(false);
-        }
-    }, []);
+    const [products, setProducts] = useState(productsData);  // Inicializar con los productos de ProductData
 
     const handleDelete = (id) => {
         const updatedProducts = products.filter((product) => product.id !== id);
         setProducts(updatedProducts);
-        // Guardar los productos actualizados en localStorage
-        if (typeof window !== "undefined") {
-            localStorage.setItem("products", JSON.stringify(updatedProducts));
-        }
+        // Si quisieras guardar los productos actualizados en localStorage puedes hacerlo aquí
+        localStorage.setItem("products", JSON.stringify(updatedProducts)); 
     };
-
-    if (loading) {
-        return <p>Cargando productos...</p>; // Mostrar un mensaje mientras se cargan los productos
-    }
 
     return (
         <div className="products_wrapper">

@@ -1,4 +1,4 @@
-const productsData = [
+export const productsData = [
     {
         id: 1,
         tag: "hero-product",

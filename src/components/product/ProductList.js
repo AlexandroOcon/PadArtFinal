@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
+import productsData from "../../data/productsData";
 
 const ListaProductos = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        // Leer productos desde localStorage cuando el componente se monta
-        const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
-        setProducts(storedProducts);
+        // Leer productos desde localStorage
+        const storedProducts = JSON.parse(localStorage.getItem("products"));
+        
+        // Si no hay productos en localStorage, usar los predeterminados
+        if (storedProducts && storedProducts.length > 0) {
+            setProducts(storedProducts);
+        } else {
+            setProducts(productsData);
+        }
     }, []);  // Solo se ejecuta una vez cuando el componente se monta
 
     const handleDelete = (id) => {

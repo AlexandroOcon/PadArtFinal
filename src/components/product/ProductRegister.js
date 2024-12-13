@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";  // Importa useNavigate
 
 const RegistroProducto = () => {
     const [newProduct, setNewProduct] = useState({
@@ -14,6 +14,7 @@ const RegistroProducto = () => {
     });
 
     const [alert, setAlert] = useState("");
+    const navigate = useNavigate();  // Inicializa el hook de navegación
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -37,6 +38,8 @@ const RegistroProducto = () => {
         
         setAlert("¡Producto registrado con éxito!");
         setTimeout(() => setAlert(""), 3000);
+
+        // Limpiar el formulario
         setNewProduct({
             id: 0,
             title: "",
@@ -47,6 +50,9 @@ const RegistroProducto = () => {
             quantity: "",
             images: [],
         });
+
+        // Redirigir a la lista de productos
+        navigate("/productlist");  // Cambia "/lista-productos" por la ruta correcta
     };
 
     return (
@@ -123,7 +129,7 @@ const RegistroProducto = () => {
                         onChange={handleImageUpload}
                     />
                 </div>
-                <button className="btn btn-primary" type="submit" Link="/productlist">
+                <button className="btn btn-primary" type="submit">
                     Registrar Producto
                 </button>
             </form>

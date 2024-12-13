@@ -51,12 +51,6 @@ const RegistroProducto = () => {
 
     return (
         <div className="product-register">
-            <header id="header" className="sticky">
-                <h2 className="nav_logo">
-                    <Link to="/">PadArt</Link>
-                </h2>
-            </header>
-
             {alert && <div className="alert success">{alert}</div>}
 
             <form className="product-form" onSubmit={handleSubmit}>
@@ -129,7 +123,7 @@ const RegistroProducto = () => {
                         onChange={handleImageUpload}
                     />
                 </div>
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary" type="submit" Link="/productlist">
                     Registrar Producto
                 </button>
             </form>

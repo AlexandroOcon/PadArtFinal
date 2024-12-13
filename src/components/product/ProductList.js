@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const ListaProductos = () => {
     const [products, setProducts] = useState([]);
@@ -19,12 +18,6 @@ const ListaProductos = () => {
 
     return (
         <div className="products_wrapper">
-            <header id="header" className="sticky">
-                <h2 className="nav_logo">
-                    <Link to="/">PadArt</Link>
-                </h2>
-            </header>
-
             <section id="all_products">
                 <h2>Lista de Productos</h2>
                 <div className="products_wrapper">

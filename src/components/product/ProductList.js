@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import productsData from "../../data/productsData";
 
 const ListaProductos = () => {
-    const [products, setProducts] = useState(productsData);  // Inicializar con los productos de ProductData
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        // Leer productos desde localStorage cuando el componente se monta
+        const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+        setProducts(storedProducts);
+    }, []);  // Solo se ejecuta una vez cuando el componente se monta
 
     const handleDelete = (id) => {
         const updatedProducts = products.filter((product) => product.id !== id);
         setProducts(updatedProducts);
-        // Si quisieras guardar los productos actualizados en localStorage puedes hacerlo aquí
-        localStorage.setItem("products", JSON.stringify(updatedProducts)); 
+        // Guardar los productos actualizados en localStorage
+        localStorage.setItem("products", JSON.stringify(updatedProducts));
     };
 
     return (

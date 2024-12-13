@@ -29,9 +29,9 @@ const RegistroProducto = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        // Add a new product to the localStorage
+        // Agregar el nuevo producto a localStorage
         const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
-        const newProductWithId = { ...newProduct, id: Date.now() }; // Assign a unique ID
+        const newProductWithId = { ...newProduct, id: Date.now() }; // Asignar un ID único
         storedProducts.push(newProductWithId);
         localStorage.setItem("products", JSON.stringify(storedProducts));
         

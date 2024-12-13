@@ -394,10 +394,10 @@ const productsData = [
     {
         id: 19,
         images: [
-            "/images/products/sonyxb400-1.png",
-            "/images/products/sonyxb400-2.png",
-            "/images/products/sonyxb400-3.png",
-            "/images/products/sonyxb400-4.png",
+            "/images/products/sonyXb400-1.png",
+            "/images/products/sonyXb400-2.png",
+            "/images/products/sonyXb400-3.png",
+            "/images/products/sonyXb400-4.png",
         ],
         brand: "Sony",
         title: "Sony WI-XB400",

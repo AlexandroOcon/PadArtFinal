@@ -1,0 +1,87 @@
+.products_wrapper {
+    @include grid-cols(4, 1fr, 0.7rem);  // Inicialmente, muestra 4 productos por fila con un espacio de 0.7rem
+
+    @include devices(lg) {
+        @include grid-cols(3, 1fr, 0.7rem);  // En pantallas grandes (pantallas de escritorio), muestra 3 productos por fila
+    }
+
+    @include devices(md) {
+        @include grid-cols(2, 1fr, 0.6rem);  // En pantallas medianas (tabletas), muestra 2 productos por fila
+    }
+
+    @include devices(xs) {
+        grid-template-columns: 1fr;  // En pantallas pequeñas (móviles), muestra 1 producto por fila
+    }
+}
+
+.products_card {
+    @include bordered(1px, rgba($color: #ffffff, $alpha: 0.4));  // Agrega borde de 1px con un color de fondo semitransparente
+    border-radius: 3px;  // Bordes redondeados para un diseño más suave
+    box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.5);  // Sombra sutil para darle profundidad a las tarjetas
+    overflow: hidden;  // Evita que el contenido sobresalga de los bordes redondeados
+    width: 100%;
+    display: center;
+    padding: 1rem;  // Espaciado interno para que los elementos dentro de la tarjeta no estén pegados a los bordes
+
+    .products_img {
+        background: var(--bg-color-2);  // Fondo con color personalizado
+        text-align: center;  // Centra la imagen dentro del contenedor
+        padding: 0.5rem;  // Reduce el espacio interno para ajustar mejor la imagen
+        overflow: hidden;  // Asegura que la imagen no sobresalga de su contenedor
+
+        img {
+            max-width: 150px;  // La imagen no se estirará más allá del 100% del contenedor
+            max-height: 150px;  // Limita la altura de la imagen para que no crezca demasiado
+            width: auto;  // Mantiene la proporción original de la imagen
+            object-fit: cover;  // Hace que la imagen se recorte para llenar el contenedor sin deformarse
+            border-radius: 4px;  // Bordes redondeados para la imagen
+            transition: transform 0.3s ease;  // Efecto de transición al hacer hover en la imagen
+
+            &:hover {
+                transform: scale(1.05);  // Efecto de ampliación al pasar el cursor sobre la imagen
+            }
+        }
+    }
+
+    .products_details {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;  // Espaciado entre los elementos dentro de los detalles del producto
+
+        .products_title {
+            font-size: 1.2rem;  // Título con tamaño más grande
+            margin-bottom: 0.5rem;  // Espacio debajo del título para separarlo de la descripción
+        }
+
+        .products_info {
+            opacity: 0.8;  // Opacidad reducida para el texto de información
+            font-weight: 500;  // Peso de fuente para darle énfasis al texto
+        }
+
+        .products_btn {
+            width: 100%;  // Hace que el botón ocupe el 100% del ancho de su contenedor
+            margin-top: 1.2rem;  // Espacio superior para separar el botón de los elementos anteriores
+            background-color: red;  // Color de fondo rojo para el botón
+            color: white;  // Texto blanco en el botón
+            border: none;  // Sin borde
+            padding: 0.8rem;  // Relleno interno para el botón
+            border-radius: 5px;  // Bordes redondeados para el botón
+            cursor: pointer;  // Aparece el cursor de mano al pasar por encima
+
+            &:hover {
+                background-color: darkred;  // Efecto de hover, cambia el color de fondo a un rojo más oscuro
+            }
+        }
+    }
+}
+
+#all_products {
+    padding-top: 8rem;  // Relleno superior para el contenedor principal de productos
+    display: grid;
+    grid-template-columns: 240px 1fr;
+
+    @include devices(lg) {
+        grid-template-columns: 1fr;  // En pantallas grandes, se muestra una sola columna
+    }
+}

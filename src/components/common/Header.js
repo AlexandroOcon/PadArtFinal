@@ -8,7 +8,7 @@ import AccountForm from '../form/AccountForm';
 import SearchBar from './SearchBar';
 
 const Header = () => {
-    const { loggedInUser, setLoggedInUser, toggleForm, toggleSearch } = useContext(commonContext); // Obtener toggleSearch y toggleForm
+    const { loggedInUser, setLoggedInUser, toggleForm, toggleSearch } = useContext(commonContext);
     const { cartItems } = useContext(cartContext);
     const [isSticky, setIsSticky] = useState(false);
 
@@ -36,6 +36,7 @@ const Header = () => {
                         <h2 className="nav_logo">
                             <Link to="/">PadArt</Link>
                         </h2>
+
                         <nav className="nav_actions">
                             <div className="search_action">
                                 <span onClick={() => toggleSearch(true)}>
@@ -43,6 +44,7 @@ const Header = () => {
                                 </span>
                                 <div className="tooltip">Search</div>
                             </div>
+                            
 
                             <div className="cart_action">
                                 <Link to="/cart">
@@ -53,6 +55,10 @@ const Header = () => {
                                 </Link>
                                 <div className="tooltip">Cart</div>
                             </div>
+
+                            <button>
+                                    <a href="https://elegant-fenglisu-e7ef64.netlify.app/">P</a>
+                            </button>
 
                             <div className="user_action">
                                 <span>
